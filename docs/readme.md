@@ -11,7 +11,7 @@ an der Technischen Beruffschule Zürich besuchte, entwickelte ich ein textbasier
 ![Klassendiagramm](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/klassendiagramm.png)
 
 **Klassendiagramm des finalen Produkts:**
-![Klassendiagramm Final](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/klassendiagramm2.png)
+![Klassendiagramm Final](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/klassendiagramm1.png)
 
 ### Sequenzdiagramm
 
