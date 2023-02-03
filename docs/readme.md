@@ -4,15 +4,16 @@ Für das Informatikmodul m226a, welches ich von November 2022 bis in den frühen
 an der Technischen Beruffschule Zürich besuchte, entwickelte ich ein textbasiertes Adventurespiel mit Java.
 
 ## Planung
-Um bereits zu Beginn meiner Arbeit einen guten Überblick und ein
-tiefes Verständnis meines Spiels aufzubauen, plante ich eine grobe Struktur meines
-Abenteuerspiels mithilfe eines Klassendiagramms
 
+### Klassendiagramm:
+
+**Klassendiagramm der Planung:**
 ![Klassendiagramm](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/klassendiagramm.png)
 
-Nachdem ich bereits einige Funktionalitäten entwickelt und eine
-genauere Vorstellung des finalen Produkts hatte, erstellte ich zusätzlich
-zum Klassendiagramm ein Sequenzdiagramm, welches die typische Nutzererfahrung mit dem Spiel aufzeigt.
+**Klassendiagramm des finalen Produkts:**
+![Klassendiagramm Final](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/klassendiagramm2.png)
+
+### Sequenzdiagramm
 
 ![Sequenzdiagramm](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/sequenzdiagramm.png)
 
