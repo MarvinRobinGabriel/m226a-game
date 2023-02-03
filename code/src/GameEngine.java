@@ -11,13 +11,15 @@ public class GameEngine {
     public static final String colorGreen = "\u001B[32m";
     public static final String colorYellow = "\u001B[33m";
     public static final String colorBlue = "\u001B[34m";
+    // fontstyles used in printMessage(util)
     public static final String textPlain = "\033[0;0m";
     public static final String textBold = "\033[0;1m";
 
-    public static ArrayList<Player> players = new ArrayList<Player>();
-    public static ArrayList<Location> locations = new ArrayList<Location>();
-    public static ArrayList<Location> locationsLeft = new ArrayList<Location>();
+    public static ArrayList<Player> players = new ArrayList<Player>(); // used to store player(s)
+    public static ArrayList<Location> locations = new ArrayList<Location>(); // used to store all locations
+    public static ArrayList<Location> locationsLeft = new ArrayList<Location>(); // stores only uncompleted locations
 
+    // util to clear console, useful to avoid chaos
     public final static void clearConsole() {
         System.out.println("\033[H\033[2J");
     }
@@ -25,6 +27,7 @@ public class GameEngine {
     // util to easily print single color messages
     public final static void printMessage(String type, String color, String message) {
 
+        // make text plain/bold based on params
         String textVariant = "";
 
         if (type == "plain") {
@@ -33,6 +36,7 @@ public class GameEngine {
             textVariant = "\033[0;1m";
         }
 
+        // switch color based on params
         switch (color) {
             case "default":
                 System.out.println(textVariant + message + textPlain);
@@ -61,6 +65,7 @@ public class GameEngine {
     // util to print segment based on cmd
     public final static void printSegment(String type) {
 
+        // print text segments based on params
         switch (type) {
             case "title":
                 clearConsole();
@@ -87,16 +92,19 @@ public class GameEngine {
         Location loc;
         loc = new Location();
 
+        // assign values
         loc.id = id;
         loc.title = title;
         loc.completed = completed;
 
+        // add loc to ArrayLists
         locations.add(loc);
         locationsLeft.add(loc);
     }
 
     // generate initial locations
     public static void locationFactory() {
+        // gemerate an initial 5 locations
         createLocation(1, "Dungeon", false);
         createLocation(2, "Market", false);
         createLocation(3, "Smithy", false);
@@ -104,19 +112,18 @@ public class GameEngine {
         createLocation(5, "Location", false);
     }
 
-    // location rendeering process
+    // location rendeering process (used to load location)
     public static void renderLocation(int id) {
-
         Location loc;
         loc = locations.get(id);
-
         Location.enterLocation(id);
     }
 
+    // menu, where user can choose next location to visit
     public static void locationMenu() {
         Scanner sc = new Scanner(System.in);
         int choice;
-        boolean repeat = true;
+        boolean repeat = true; // whilst true: menu will continue to ask for input and won't load location
     
         while ( repeat ) {
             printMessage("bold", "blue", "Where would you like to go?");
@@ -127,6 +134,7 @@ public class GameEngine {
             printMessage("plain", "default", "5) Lake");
             choice = sc.nextInt();
     
+            // determine which location to load based on user input3
             switch(choice){
                 case 1:
                     repeat = false;
@@ -148,7 +156,7 @@ public class GameEngine {
                     repeat = false;
                     renderLocation(5);
                     break;
-                default:
+                default: // simple error handling
                     repeat = true;
                     printMessage("plain", "red", "Please enter a number from the provided options");
                 return;
@@ -156,17 +164,17 @@ public class GameEngine {
         }
        }
 
+    // mark location as completed and remove from remaining ArrayList
     public static void locationCompleted(int id) {
-
         Location loc;
         loc = locations.get(id);
-        loc.completed = true;
+        Location.completed = true; // mark location as completed
 
-        System.out.println(textBold + colorGreen + loc.title + " has been freed from the monsters!" + colorReset + textPlain);
+        System.out.println(textBold + colorGreen + Location.title + " has been freed from the monsters!" + colorReset + textPlain);
         printEmptyLine();
-        locationMenu();
+        locationMenu(); // load location menu, so user can move to another location
 
-        locationsLeft.remove(loc);
+        locationsLeft.remove(loc); // remove location from ArrayList
     }
 
     // game completion segment
@@ -175,18 +183,17 @@ public class GameEngine {
         printMessage("bold", "green", "Congratulations");
         printMessage("bold","green", "You managed to survive and beat the game!");
         printEmptyLine();
-        App.menu();
+        App.menu(); // print main menu
     }
 
     // gameover segment
     public static void GameOver(String monster, int health) {
         clearConsole();
-        printEmptyLine();
         printMessage("bold", "red", "Game Over");
         System.out.println( "You have been killed by a " + monster + "(" + health + "HP)" + colorReset);
         printMessage("plain", "default", "You might want to try harder next time!");
         printEmptyLine();
-        App.menu();
+        App.menu(); // print main menu
     }
 
     // player creation
@@ -194,11 +201,10 @@ public class GameEngine {
 
         String firstname;
         String lastname;
-    
         Scanner sc = new Scanner(System.in);
-
         printEmptyLine();
 
+        // firstname input
         while (true) {
             printMessage("bold", "blue", "Please enter your firstname");
             firstname = sc.next();
@@ -206,7 +212,7 @@ public class GameEngine {
                 printMessage("plain", "red", "Input isn't long enough!");
                 printEmptyLine();
                 continue;
-            }
+            } 
             else if (!firstname.matches("[a-zA-Z]+")){
                 printMessage("plain", "red", "Input contains forbidden characters!");
                 printEmptyLine();
@@ -218,6 +224,7 @@ public class GameEngine {
             }
         }
 
+        // lastname input
         while (true) {
             printMessage("bold", "blue", "Please enter your lastname");
             lastname = sc.next();
@@ -238,7 +245,7 @@ public class GameEngine {
         }
 
         String fullname = firstname + " " + lastname;
-        askForConfirmation(firstname, lastname, fullname);
+        askForConfirmation(firstname, lastname, fullname); 
     }
 
     // ask for comfirmation before creating player
@@ -283,11 +290,14 @@ public class GameEngine {
         p.id = 0;
         p.firstname = firstname;
         p.lastname = lastname;
+        // health & damage is currently not changeable. Difficulty Selection could easily be implemented later down the line
         p.health = 150;
         p.damage = 20;
 
+        // store newly created player
         players.add(p);
 
+        // start story with all remaining locations
         Story.startStory(locationsLeft);
 
     }

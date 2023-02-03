@@ -14,8 +14,4 @@ public class Player {
         damage = 0;
     }
 
-    public void setHealth(int hp) {
-        health = hp;
-    }
-
 }

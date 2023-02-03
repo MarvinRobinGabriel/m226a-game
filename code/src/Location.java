@@ -13,6 +13,7 @@ public class Location {
         completed = false;
     }
 
+    // used to determine if location is completed already or if there is remaining content to be achieved 
     public static void enterLocation(int id) {
             GameEngine.clearConsole();
             Story.playChapter(id);
@@ -26,18 +27,19 @@ public class Location {
         } */
     }
 
+    // spawn monsters inside this location based on params
+    // monster presets are a viable alternative to param-based creation in the future
     public static void spawnMonster(int id, String type, int health, int damage) {
 
         Monster m;
         m = new Monster();
-        
         m.type = type;
         m.health = health;
         m.damage = damage;
-
         monsters.add(m);
     }
 
+    // "kill monster" by removing it from the ArrayList
     public static void killMonster(int id) {
         Monster m;
         m = monsters.get(id);

@@ -5,13 +5,15 @@ import java.util.Scanner;
 
 public class Combat {
 
+    // player gets attacked by monster(s) and is confronted with a choice of actions
     public static void fightEncounter(Player p, Monster m) {
 
         Scanner sc = new Scanner(System.in);
         int choice = 0;
         boolean valid = false;
 
-        String playerHP = " (" + p.health + " HP)";
+        // simply used to style health
+        String playerHP = " (" + p.health + " HP)"; 
         String monsterHP = " (" + m.health + " HP)";
 
         GameEngine.printEmptyLine();
@@ -42,15 +44,16 @@ public class Combat {
             // print chosen approach
             switch (choice) {
                 case 1:
-                    fightSimulation(p, m, 1);
+                    fightSimulation(p, m, 1); // simulate fight with an attacking mindset
                     break;
                 case 2:
-                    fightSimulation(p, m, 2);
+                    fightSimulation(p, m, 2); // simulate fight with a defensive mindset
                     break;
             }
         }
     }
 
+    // simulate the fight between plaer and monster
     public static void fightSimulation(Player p, Monster m, int approach) {
 
         int playerHP = p.health;
@@ -58,21 +61,24 @@ public class Combat {
 
         while (monsterHP > 0 && playerHP > 0) {
 
+            // min-max used for random damage values
             int min = 10;
             int max = 25;
 
-            Boolean success = Math.random() < 0.5;
-            int playerDMG = (int) Math.floor(Math.random() * (max - min + 1)) + min;
-            int monsterDMG = (int) (Math.floor(Math.random() * (max - min + 1)) + min);
+            Boolean success = Math.random() < 0.5; // randomly determine who wints maneuver
+            int playerDMG = (int) Math.floor(Math.random() * (max - min + 1)) + min; // randomly determine player damage for each maneuver
+            int monsterDMG = (int) (Math.floor(Math.random() * (max - min + 1)) + min); // randomly determine monster damage for each maneuver
 
-            if(success) {
-
+            // used when player got the better of monster
+            if (success) {
                 monsterHP = monsterHP - playerDMG;
-
                 System.out.println(GameEngine.colorGreen + "Maneuver was successful" + GameEngine.colorReset );
                 System.out.println("You have " + playerHP + " HP left.");
                 System.out.println("The monster has " + monsterHP + " HP left.");
-            } else if (!success) {
+            } 
+            
+            // used when player got the better of monster
+            else if (!success) {
                 playerHP = playerHP - monsterDMG;
 
                 System.out.println(GameEngine.colorRed + "Maneuver has failed" + GameEngine.colorReset);
@@ -81,10 +87,10 @@ public class Combat {
             }
         }
 
+        // handle fight outcome
         if (playerHP < 0) {
             GameEngine.GameOver(m.type, monsterHP);
         }
-
         if (monsterHP < 0) {
             Location.killMonster(m.id);
         }
