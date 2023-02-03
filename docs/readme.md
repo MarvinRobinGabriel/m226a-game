@@ -1,8 +1,5 @@
 # m226a - Adventure Game
 
-Für das Informatikmodul m226a, welches ich von November 2022 bis in den frühen Februar 2023
-an der Technischen Beruffschule Zürich besuchte, entwickelte ich ein textbasiertes Adventurespiel mit Java.
-
 ## Planung
 
 ### Klassendiagramm:
