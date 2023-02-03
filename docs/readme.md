@@ -18,9 +18,6 @@ an der Technischen Beruffschule Zürich besuchte, entwickelte ich ein textbasier
 ![Sequenzdiagramm](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/sequenzdiagramm.png)
 
 ## Entwicklung
-In der 3 wöchigen Entwicklungsperiode investierte ich etwa 10 Stunden in das Projekt.
-Mir war schon früh bewusst, dass ich durch eine Art "GameEngine" viele, oft verwendete, Funktionen
-zentralisieren und somit Wiederverwendbar machen konnte.
 
 ### GameEngine:
 
@@ -60,3 +57,18 @@ einige versteckte Gegenstände in den einzelnen Räumen unterzubringen. Diese Ge
 ![Story One](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/story1.png)
 
 ## Testen
+
+### Testprotokoll:
+
+| # | Kategorie | Testfall | Resultat
+|--|--|--|--|
+| 1 | Funktionalität | Das Programm kann gestartet werden | Erfüllt |
+| 2 | Funktionalität | Ein vollständiger Durchlauf des Programms ist möglich | Erfüllt |
+| 3 | Nutzereingabe| Usereingabe werden stehts auf Validität überprüft und geben falls notwendig eine Fehlermeldung zurück |  Erfüllt |
+| 4 | Nutzereingabe| User kann Eingabe über eine Auswahl an "keywords" tätigen. Es gibt nicht nur 1 richtigen Weg | Teils Erfüllt |
+| 5 | Nutzereingabe| User kann "Charakter" erstellen | Erfüllt |
+| 6 | Kampfsystem| User kann gegen mehrere, unerschiedlich starke Monster antreten |Erfüllt|
+| 7 | Kampfsystem| User kann durch Entscheidungen Kämpfe gegen Monster beeinflussen |Erfüllt|
+| 8 | Story| Spiel verfügt über eine zusammenhängende Geschichte, auf welcher der Nutzer Einfluss nehmen kann | Nicht Erfüllt|
+| 8 | Story| Items können im Lauf des Spiels gesammelt werden | Nicht Erfüllt|
+
