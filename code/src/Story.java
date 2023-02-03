@@ -14,7 +14,7 @@ public class Story {
         GameEngine.printMessage("plain", "default", "As a noble knight, it's your task to free all the captured places from the creatures.");
         GameEngine.printEmptyLine();
 
-        GameEngine.locationMenu(); // load location menu, so user can decide on next location
+        Location.locationMenu(); // load location menu, so user can decide on next location
     }
 
     public static void playChapter(int id) {
@@ -67,7 +67,7 @@ public class Story {
         Combat.fightEncounter(p, m2);
         Combat.fightEncounter(p, m3);
 
-        GameEngine.locationCompleted(currentChapter);
+        Location.locationCompleted(currentChapter);
     }
 
     public static void chapterTwo() {
@@ -96,7 +96,7 @@ public class Story {
         Combat.fightEncounter(p, m3);
         Combat.fightEncounter(p, m4);
 
-        GameEngine.locationCompleted(currentChapter);
+        Location.locationCompleted(currentChapter);
     }
 
     public static void chapterThree() {
@@ -128,7 +128,7 @@ public class Story {
         Combat.fightEncounter(p, m4);
         Combat.fightEncounter(p, m5);
 
-        GameEngine.locationCompleted(currentChapter);
+        Location.locationCompleted(currentChapter);
     }
 
     public static void chapterFour() {
@@ -161,7 +161,7 @@ public class Story {
         Combat.fightEncounter(p, m5);
 
         // set level as completed 
-        GameEngine.locationCompleted(currentChapter);
+        Location.locationCompleted(currentChapter);
     }
 
     public static void chapterFive() {
@@ -193,6 +193,6 @@ public class Story {
         Combat.fightEncounter(p, m4);
         Combat.fightEncounter(p, m5);
 
-        GameEngine.locationCompleted(currentChapter);
+        Location.locationCompleted(currentChapter);
     }
 }
