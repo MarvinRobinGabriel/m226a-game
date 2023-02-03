@@ -97,11 +97,11 @@ public class GameEngine {
 
     // generate initial locations
     public static void locationFactory() {
-        createLocation(1, "Location 1", false);
-        createLocation(2, "Location 2", false);
-        createLocation(3, "Location 3", false);
-        createLocation(4, "Location 4", false);
-        createLocation(5, "Location 5", false);
+        createLocation(1, "Dungeon", false);
+        createLocation(2, "Market", false);
+        createLocation(3, "Smithy", false);
+        createLocation(4, "Forest", false);
+        createLocation(5, "Location", false);
     }
 
     // location rendeering process
@@ -120,11 +120,11 @@ public class GameEngine {
     
         while ( repeat ) {
             printMessage("bold", "blue", "Where would you like to go?");
-            printMessage("plain", "default", "1) Location 1");
-            printMessage("plain", "default", "2) Location 2");
-            printMessage("plain", "default", "3) Location 3");
-            printMessage("plain", "default", "4) Location 4");
-            printMessage("plain", "default", "5) Location");
+            printMessage("plain", "default", "1) Dungeon");
+            printMessage("plain", "default", "2) Market");
+            printMessage("plain", "default", "3) Smithy");
+            printMessage("plain", "default", "4) Forest");
+            printMessage("plain", "default", "5) Lake");
             choice = sc.nextInt();
     
             switch(choice){
@@ -160,12 +160,13 @@ public class GameEngine {
 
         Location loc;
         loc = locations.get(id);
-        locationsLeft.remove(loc);
+        loc.completed = true;
 
-        clearConsole();
-        System.out.println(textBold + colorGreen + loc.title + "has been freed from the monsters!" + colorReset + textPlain);
+        System.out.println(textBold + colorGreen + loc.title + " has been freed from the monsters!" + colorReset + textPlain);
         printEmptyLine();
         locationMenu();
+
+        locationsLeft.remove(loc);
     }
 
     // game completion segment
@@ -181,7 +182,6 @@ public class GameEngine {
     public static void GameOver(String monster, int health) {
         printEmptyLine();
         printMessage("bold", "red", "Game Over");
-        System.out.println(textBold + colorRed + "Game Over" + colorReset + textPlain);
         System.out.println( "You have been killed by a " + monster + "(" + health + "HP)" + colorReset);
         printMessage("plain", "default", "You might want to try harder next time!");
         printEmptyLine();

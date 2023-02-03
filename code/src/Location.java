@@ -14,18 +14,16 @@ public class Location {
     }
 
     public static void enterLocation(int id) {
-        if (!completed) {
             GameEngine.clearConsole();
             Story.playChapter(id);
-        }
 
-        if (completed) {
+        /* if (completed) {
             GameEngine.clearConsole();
             GameEngine.printMessage("bold", "green", "You've already completed everything in this stage!");
             GameEngine.printMessage("bold", "green", "Please select a different location to continue your adventure.");
             GameEngine.printEmptyLine();
             GameEngine.locationMenu();
-        }
+        } */
     }
 
     public static void spawnMonster(int id, String type, int health, int damage) {

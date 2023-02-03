@@ -19,19 +19,24 @@ public class Story {
         
         switch(id){
             case 1:
+                currentLocation = 1;
                 locationOne();
                 break;
             case 2:
-                GameEngine.printMessage("plain", "red", "Location Undefined");
+                currentLocation = 2;
+                locationTwo();
                 break;
             case 3:
-                GameEngine.printMessage("plain", "red", "Location Undefined");
+                currentLocation = 3;
+                locationThree();
                 break;
             case 4:
-                GameEngine.printMessage("plain", "red", "Location Undefined");
+                currentLocation = 4;
+                locationFour();
                 break;
             case 5:
-                GameEngine.printMessage("plain", "red", "Location Undefined");
+                currentLocation = 5;
+                locationFive();
                 break;
         }
 
@@ -43,7 +48,9 @@ public class Story {
         Location.spawnMonster(2, "Skeleton", 100, 10);
         Location.spawnMonster(3, "Zombie", 75, 25);
 
-        Monster m1 = Location.monsters.get(1);
+        Monster m1 = Location.monsters.get(0);
+        Monster m2 = Location.monsters.get(1);
+        Monster m3 = Location.monsters.get(2);
 
         GameEngine.printEmptyLine();
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
@@ -51,5 +58,124 @@ public class Story {
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
 
         Combat.fightEncounter(p, m1);
+        // Combat.fightEncounter(p, m2);
+        // Combat.fightEncounter(p, m3);
+
+        GameEngine.locationCompleted(currentLocation);
+    }
+
+    public static void locationTwo() {
+
+        Location.spawnMonster(1, "Skeleton", 100, 10);
+        Location.spawnMonster(2, "Zombie", 75, 25);
+        Location.spawnMonster(3, "Zombie", 75, 25);
+        Location.spawnMonster(4, "Zombie", 75, 25);
+
+        Monster m1 = Location.monsters.get(0);
+        Monster m2 = Location.monsters.get(1);
+        Monster m3 = Location.monsters.get(2);
+        Monster m4 = Location.monsters.get(3);
+
+        GameEngine.printEmptyLine();
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+
+        Combat.fightEncounter(p, m1);
+        // Combat.fightEncounter(p, m2);
+        // Combat.fightEncounter(p, m3);
+        // Combat.fightEncounter(p, m4);
+
+        GameEngine.locationCompleted(currentLocation);
+    }
+
+    public static void locationThree() {
+
+        Location.spawnMonster(1, "Skeleton", 100, 10);
+        Location.spawnMonster(2, "Zombie", 75, 25);
+        Location.spawnMonster(3, "Zombie", 75, 25);
+        Location.spawnMonster(4, "Zombie", 75, 25);
+        Location.spawnMonster(5, "Spider", 125, 25);
+
+        Monster m1 = Location.monsters.get(0);
+        Monster m2 = Location.monsters.get(1);
+        Monster m3 = Location.monsters.get(2);
+        Monster m4 = Location.monsters.get(3);
+        Monster m5 = Location.monsters.get(4);
+
+        GameEngine.printEmptyLine();
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+
+        Combat.fightEncounter(p, m1);
+        // Combat.fightEncounter(p, m2);
+        // Combat.fightEncounter(p, m3);
+        // Combat.fightEncounter(p, m4);
+        // Combat.fightEncounter(p, m5);
+
+        GameEngine.locationCompleted(currentLocation);
+    }
+
+    public static void locationFour() {
+
+        Location.spawnMonster(1, "Skeleton", 100, 10);
+        Location.spawnMonster(2, "Zombie", 75, 25);
+        Location.spawnMonster(3, "Zombie", 75, 25);
+        Location.spawnMonster(4, "Spider", 75, 25);
+        Location.spawnMonster(4, "Spider", 125, 25);
+
+        Monster m1 = Location.monsters.get(0);
+        Monster m2 = Location.monsters.get(1);
+        Monster m3 = Location.monsters.get(2);
+        Monster m4 = Location.monsters.get(3);
+        Monster m5 = Location.monsters.get(4);
+
+        GameEngine.printEmptyLine();
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+
+        Combat.fightEncounter(p, m1);
+        // Combat.fightEncounter(p, m2);
+        // Combat.fightEncounter(p, m3);
+        // Combat.fightEncounter(p, m4);
+        // Combat.fightEncounter(p, m5);
+
+        GameEngine.locationCompleted(currentLocation);
+    }
+
+    public static void locationFive() {
+
+        Location.spawnMonster(1, "Skeleton", 100, 10);
+        Location.spawnMonster(2, "Zombie", 75, 25);
+        Location.spawnMonster(3, "Zombie", 75, 25);
+        Location.spawnMonster(4, "Zombie", 75, 25);
+        Location.spawnMonster(5, "Spider", 125, 25);
+        Location.spawnMonster(6, "Spider", 125, 25);
+        Location.spawnMonster(7, "Spider", 125, 25);
+
+        Monster m1 = Location.monsters.get(0);
+        Monster m2 = Location.monsters.get(1);
+        Monster m3 = Location.monsters.get(2);
+        Monster m4 = Location.monsters.get(3);
+        Monster m5 = Location.monsters.get(4);
+        Monster m6 = Location.monsters.get(5);
+        Monster m7 = Location.monsters.get(6);
+
+        GameEngine.printEmptyLine();
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+        GameEngine.printMessage("plain", "default", "// Insert Textblock");
+
+        Combat.fightEncounter(p, m1);
+        // Combat.fightEncounter(p, m2);
+        // Combat.fightEncounter(p, m3);
+        // Combat.fightEncounter(p, m4);
+        // Combat.fightEncounter(p, m5);
+        // Combat.fightEncounter(p, m6);
+        // Combat.fightEncounter(p, m7);
+
+        GameEngine.locationCompleted(currentLocation);
     }
 }
