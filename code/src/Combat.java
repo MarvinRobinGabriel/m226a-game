@@ -15,23 +15,23 @@ public class Combat {
         String monsterHP = " (" + m.health + " HP)";
 
         GameEngine.printEmptyLine();
-        System.out.println(GameEngine.colorBlue + p.firstname + " " + p.lastname + playerHP + " is being attacked by a " + m.type + monsterHP + GameEngine.colorReset);
+        System.out.println(GameEngine.textBold + GameEngine.colorBlue + p.firstname + " " + p.lastname + playerHP + GameEngine.colorReset + " is being attacked by a " + GameEngine.colorBlue + m.type + monsterHP + GameEngine.colorReset + GameEngine.textPlain);
         GameEngine.printEmptyLine();
 
         while( !valid ) {
-            GameEngine.printMessage("blue", "How will you respond to this threat?");
-            GameEngine.printMessage("red", "1) Agressive Approach");
-            GameEngine.printMessage("green", "2) Defensive Approach");
+            GameEngine.printMessage("bold", "blue", "How will you respond to this threat?");
+            GameEngine.printMessage("plain", "default", "1) Agressive Approach");
+            GameEngine.printMessage("plain", "default", "2) Defensive Approach");
 
             try {
                 choice = sc.nextInt();
                 if(choice == 1 || choice == 2){
                    valid = true;
                 } else {
-                    GameEngine.printMessage("red", "ERROR: Please choose from the provided approaches");
+                    GameEngine.printMessage("plain","red", "ERROR: Please choose from the provided approaches");
                 }
              } catch (InputMismatchException e) {
-                GameEngine.printMessage("red", "ERROR: Only numbers permitted.");
+                GameEngine.printMessage("plain","red", "Only numbers permitted.");
                 sc.next();
              } 
         }
@@ -70,25 +70,28 @@ public class Combat {
 
                 monsterHP = monsterHP - playerDMG;
 
-                System.out.println(GameEngine.colorGreen + "Success");
-                System.out.println(GameEngine.colorBlue + "You have " + playerHP + " HP left." + GameEngine.colorReset);
-                System.out.println(GameEngine.colorBlue + "The monster has " + monsterHP + " HP left." + GameEngine.colorReset);
+                System.out.println(GameEngine.colorGreen + "Success" + GameEngine.colorReset );
+                System.out.println("You have " + playerHP + " HP left.");
+                System.out.println("The monster has " + monsterHP + " HP left.");
                 GameEngine.printEmptyLine();
             } else if (!success) {
                 playerHP = playerHP - monsterDMG;
 
-                System.out.println(GameEngine.colorRed + "Failure");
-                System.out.println(GameEngine.colorBlue + "You have " + playerHP + " HP left." + GameEngine.colorReset);
-                System.out.println(GameEngine.colorBlue + "The monster has " + monsterHP + " HP left." + GameEngine.colorReset);
+                System.out.println(GameEngine.colorRed + "Failure" + GameEngine.colorReset);
+                System.out.println( "You have " + playerHP + " HP left.");
+                System.out.println( "The monster has " + monsterHP + " HP left.");
                 GameEngine.printEmptyLine();
             }
         }
 
         if (playerHP < 0) {
-            GameEngine.GameOver();
+            GameEngine.GameOver(m.type, monsterHP);
+
+            p.setHealth(playerHP);
         }
 
         if (monsterHP < 0) {
+            System.out.println(p.health);
             Location.killMonster(m.id);
         }
     }

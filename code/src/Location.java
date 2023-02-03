@@ -16,14 +16,13 @@ public class Location {
     public static void enterLocation(int id) {
         if (!completed) {
             GameEngine.clearConsole();
-            System.out.println(GameEngine.colorBlue + "Welcome to " + title + "!" + GameEngine.colorReset);
             Story.playChapter(id);
         }
 
         if (completed) {
-            GameEngine.printEmptyLine();
-            GameEngine.printMessage("green", "You've already completed everything in this stage!");
-            GameEngine.printMessage("green", "Please select a different location to continue your adventure.");
+            GameEngine.clearConsole();
+            GameEngine.printMessage("bold", "green", "You've already completed everything in this stage!");
+            GameEngine.printMessage("bold", "green", "Please select a different location to continue your adventure.");
             GameEngine.printEmptyLine();
             GameEngine.locationMenu();
         }
@@ -45,7 +44,9 @@ public class Location {
         Monster m;
         m = monsters.get(id);
 
-        System.out.println(GameEngine.colorBlue + "You have slayed the " + m.type + "!" + GameEngine.colorReset);
+        GameEngine.printEmptyLine();
+        System.out.println(GameEngine.textBold + GameEngine.colorGreen + "You have slayed the " + m.type + "!" + GameEngine.colorReset + GameEngine.textPlain);
+        GameEngine.printEmptyLine();
         monsters.remove(m);
     
     }

@@ -17,9 +17,9 @@ public class App {
         boolean repeat = true;
 
         while ( repeat ) {
-            GameEngine.printMessage("blue", "Please choose a number to continue");
-            GameEngine.printMessage("blue", "1) Start Game");
-            GameEngine.printMessage("blue", "2) About this Project:");
+            GameEngine.printMessage("bold", "blue", "Please enter your prefered number to continue:");
+            GameEngine.printMessage("plain", "default", "1) Start Game");
+            GameEngine.printMessage("plain", "default", "2) About this Project");
             choice = sc.nextInt();
 
             switch(choice){
@@ -34,7 +34,7 @@ public class App {
                     break;
                 default:
                     repeat = true;
-                    GameEngine.printMessage("red", "Please choose from the provided options");
+                    GameEngine.printMessage("plain", "red", "Please choose from the provided options");
                     return;
             }
         }

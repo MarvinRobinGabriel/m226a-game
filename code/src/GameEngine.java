@@ -11,6 +11,8 @@ public class GameEngine {
     public static final String colorGreen = "\u001B[32m";
     public static final String colorYellow = "\u001B[33m";
     public static final String colorBlue = "\u001B[34m";
+    public static final String textPlain = "\033[0;0m";
+    public static final String textBold = "\033[0;1m";
 
     public static ArrayList<Player> players = new ArrayList<Player>();
     public static ArrayList<Location> locations = new ArrayList<Location>();
@@ -21,22 +23,31 @@ public class GameEngine {
     }
 
     // util to easily print single color messages
-    public final static void printMessage(String color, String message) {
+    public final static void printMessage(String type, String color, String message) {
+
+        String textVariant = "";
+
+        if (type == "plain") {
+            textVariant = "\033[0;0m";
+        } else if (type == "bold") {
+            textVariant = "\033[0;1m";
+        }
+
         switch (color) {
             case "default":
-                System.out.println(message);
+                System.out.println(textVariant + message + textPlain);
                 break;
             case "blue":
-                System.out.println(colorBlue + message + colorReset);
+                System.out.println(textVariant + colorBlue + message + colorReset + textPlain);
                 break;
             case "red":
-                System.out.println(colorRed + message + colorReset);
+                System.out.println(textVariant + colorRed + message + colorReset + textPlain);
                 break;
             case "yellow":
-                System.out.println(colorYellow + message + colorReset);
+                System.out.println(textVariant + colorYellow + message + colorReset + textPlain);
                 break;
             case "green":
-                System.out.println(colorGreen + message + colorReset);
+                System.out.println(textVariant + colorGreen + message + colorReset + textPlain);
                 break;
         }
     }
@@ -53,16 +64,18 @@ public class GameEngine {
         switch (type) {
             case "title":
                 clearConsole();
-                printMessage("blue", "m226a - Adventure Game");
-                printEmptyLine();
-                printEmptyLine();
+                printMessage("bold", "blue", "m226a - Textbased Adventure Game");
                 printEmptyLine();
                 break;
             case "about":
                 clearConsole();
-                printMessage("blue", "About this project:");
+                printMessage("bold", "blue", "About this Project:");
+                printMessage("plain", "default", "Developer: Marvin Robin Gabriel");
+                printMessage("plain", "default", "Development Period: 27.01.2023 - 03.02.2022");
+                printMessage("plain", "default", "Environment: Technische Berufsschule Zürich, m226a");
                 printEmptyLine();
-                printEmptyLine();
+                printMessage("plain", "default", "Codebase: https://github.com/MarvinRobinGabriel/m226a-game/tree/main/code");
+                printMessage("plain", "default", "Docs: https://github.com/MarvinRobinGabriel/m226a-game/tree/main/docs");
                 printEmptyLine();
                 break;
         }
@@ -106,12 +119,12 @@ public class GameEngine {
         boolean repeat = true;
     
         while ( repeat ) {
-            GameEngine.printMessage("blue", "Where would you like to go?");
-            GameEngine.printMessage("blue", "1) Location 1");
-            GameEngine.printMessage("blue", "2) Location 2");
-            GameEngine.printMessage("blue", "3) Location 3");
-            GameEngine.printMessage("blue", "4) Location 4");
-            GameEngine.printMessage("blue", "5) Location");
+            printMessage("bold", "blue", "Where would you like to go?");
+            printMessage("plain", "default", "1) Location 1");
+            printMessage("plain", "default", "2) Location 2");
+            printMessage("plain", "default", "3) Location 3");
+            printMessage("plain", "default", "4) Location 4");
+            printMessage("plain", "default", "5) Location");
             choice = sc.nextInt();
     
             switch(choice){
@@ -137,7 +150,7 @@ public class GameEngine {
                     break;
                 default:
                     repeat = true;
-                    GameEngine.printMessage("red", "Please enter a number from the provided options");
+                    printMessage("plain", "red", "Please enter a number from the provided options");
                 return;
             }
         }
@@ -149,29 +162,29 @@ public class GameEngine {
         loc = locations.get(id);
         locationsLeft.remove(loc);
 
-        GameEngine.clearConsole();
-        GameEngine.printEmptyLine();
-        System.out.println(GameEngine.colorBlue + "You have completed " + loc.title + "!" + GameEngine.colorReset);
-        GameEngine.printEmptyLine();
-        GameEngine.locationMenu();
+        clearConsole();
+        System.out.println(textBold + colorGreen + loc.title + "has been freed from the monsters!" + colorReset + textPlain);
+        printEmptyLine();
+        locationMenu();
     }
 
     // game completion segment
     public static void Completion() {
-        GameEngine.clearConsole();
-        GameEngine.printEmptyLine();
-        GameEngine.printMessage("green", "Congratulations");
-        GameEngine.printMessage("green", "You managed to survive and beat the game!");
-        GameEngine.printEmptyLine();
+        clearConsole();
+        printMessage("bold", "green", "Congratulations");
+        printMessage("bold","green", "You managed to survive and beat the game!");
+        printEmptyLine();
         App.menu();
     }
 
     // gameover segment
-    public static void GameOver() {
-        GameEngine.printEmptyLine();
-        GameEngine.printMessage("red", "Game Over");
-        GameEngine.printMessage("red", "You have died and thus lost the game");
-        GameEngine.printEmptyLine();
+    public static void GameOver(String monster, int health) {
+        printEmptyLine();
+        printMessage("bold", "red", "Game Over");
+        System.out.println(textBold + colorRed + "Game Over" + colorReset + textPlain);
+        System.out.println( "You have been killed by a " + monster + "(" + health + "HP)" + colorReset);
+        printMessage("plain", "default", "You might want to try harder next time!");
+        printEmptyLine();
         App.menu();
     }
 
@@ -186,15 +199,15 @@ public class GameEngine {
         printEmptyLine();
 
         while (true) {
-            printMessage("blue", "Please enter your firstname");
+            printMessage("bold", "blue", "Please enter your firstname");
             firstname = sc.next();
             if (firstname.length() < 2){
-                printMessage("red", "Input isn't long enough!");
+                printMessage("plain", "red", "Input isn't long enough!");
                 printEmptyLine();
                 continue;
             }
             else if (!firstname.matches("[a-zA-Z]+")){
-                printMessage("red", "Input contains forbidden characters!");
+                printMessage("plain", "red", "Input contains forbidden characters!");
                 printEmptyLine();
                 continue;
             }
@@ -205,15 +218,15 @@ public class GameEngine {
         }
 
         while (true) {
-            printMessage("blue", "Please enter your lastname");
+            printMessage("bold", "blue", "Please enter your lastname");
             lastname = sc.next();
             if (lastname.length() < 2){
-                printMessage("red", "Input isn't long enough!");
+                printMessage("plain", "red", "Input isn't long enough!");
                 printEmptyLine();
                 continue;
             }
             else if (!lastname.matches("[a-zA-Z]+")){
-                printMessage("red", "Input contains forbidden characters!");
+                printMessage("plain", "red", "Input contains forbidden characters!");
                 printEmptyLine();
                 continue;
             }
@@ -235,7 +248,7 @@ public class GameEngine {
         Scanner sc = new Scanner(System.in);
         while (repeat)
         {
-            System.out.println(colorBlue + "Would you like to continue as " + fullname + "? (yes to continue / no to abort)" + colorReset);
+            System.out.println(textBold + colorBlue + "Would you like to continue as " + fullname + "? (yes to continue / no to abort)" + colorReset + textPlain);
             input = sc.nextLine();
 
             switch(input){
@@ -256,7 +269,7 @@ public class GameEngine {
             default:
                 repeat = true;
                 printEmptyLine();
-                printMessage("red", "Please choose between yes and no");
+                printMessage("plain", "red", "Please choose between yes and no");
                 break;
             }
         }

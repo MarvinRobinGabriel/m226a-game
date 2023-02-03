@@ -14,24 +14,8 @@ public class Player {
         damage = 0;
     }
 
-    public void changeLocation(int id) {
-
+    public void setHealth(int hp) {
+        health = hp;
     }
 
-    public void attack(Monster m) {
-
-    }
-
-    public void defend(Monster m) {
-        
-    }
-
-    public void death(Monster m) {
-        
-        String fullname = firstname + lastname;
-
-        System.out.println(" ");
-        System.out.println("GAME OVER: " + fullname + " has been killed by a " + m.type + "!");
-        System.out.println(" ");
-    }
 }
