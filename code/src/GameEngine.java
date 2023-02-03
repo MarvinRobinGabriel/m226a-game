@@ -85,7 +85,8 @@ public class GameEngine {
     }
 
     // location creation
-    public static void createLocation(int id, String title, boolean completed) {
+    
+    static void createLocation(int id, String title, boolean completed) {
 
         Location loc;
         loc = new Location();
@@ -163,7 +164,7 @@ public class GameEngine {
     }
 
     // ask for comfirmation before creating player
-    public static void askForConfirmation(String firstname, String lastname, String fullname) {
+    static void askForConfirmation(String firstname, String lastname, String fullname) {
         
         boolean repeat = true;
         String input;
@@ -198,7 +199,7 @@ public class GameEngine {
     }
 
     // create player
-    public static void savePlayer(String firstname, String lastname) {
+    static void savePlayer(String firstname, String lastname) {
 
         Player p = new Player();
         p.id = 0;

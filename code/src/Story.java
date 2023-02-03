@@ -45,14 +45,13 @@ public class Story {
 
     }
 
-    public static void chapterOne() {
+    static void chapterOne() {
 
         // monsters are being spawned in the location
         Location.spawnMonster(1, "Skeleton", 100, 10);
         Location.spawnMonster(2, "Skeleton", 100, 10);
         Location.spawnMonster(3, "Zombie", 75, 25);
 
-        GameEngine.printEmptyLine();
         GameEngine.printMessage("bold", "blue", "Dungeon:");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
@@ -70,7 +69,7 @@ public class Story {
         Location.locationCompleted(currentChapter);
     }
 
-    public static void chapterTwo() {
+    static void chapterTwo() {
 
         // monsters are being spawned in the location
         Location.spawnMonster(1, "Skeleton", 100, 10);
@@ -79,7 +78,6 @@ public class Story {
         Location.spawnMonster(4, "Zombie", 75, 25);
 
         // print story segment
-        GameEngine.printEmptyLine();
         GameEngine.printMessage("bold", "blue", "Market:");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
@@ -99,7 +97,7 @@ public class Story {
         Location.locationCompleted(currentChapter);
     }
 
-    public static void chapterThree() {
+    static void chapterThree() {
 
         // monsters are being spawned in the location
         Location.spawnMonster(1, "Skeleton", 100, 10);
@@ -109,7 +107,6 @@ public class Story {
         Location.spawnMonster(5, "Spider", 125, 25);
 
         // print story segment
-        GameEngine.printEmptyLine();
         GameEngine.printMessage("bold", "blue", "Smithy:");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
@@ -131,7 +128,7 @@ public class Story {
         Location.locationCompleted(currentChapter);
     }
 
-    public static void chapterFour() {
+    static void chapterFour() {
 
         // monsters are being spawned in the location
         Location.spawnMonster(1, "Skeleton", 100, 10);
@@ -141,7 +138,6 @@ public class Story {
         Location.spawnMonster(4, "Spider", 125, 25);
 
         // print story segment
-        GameEngine.printEmptyLine();
         GameEngine.printMessage("bold", "blue", "Forest:");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
@@ -164,7 +160,7 @@ public class Story {
         Location.locationCompleted(currentChapter);
     }
 
-    public static void chapterFive() {
+    static void chapterFive() {
 
         // monsters are being spawned in the location
         Location.spawnMonster(1, "Skeleton", 100, 10);
@@ -174,7 +170,6 @@ public class Story {
         Location.spawnMonster(5, "Spider", 125, 25);
 
         // print story segment
-        GameEngine.printEmptyLine();
         GameEngine.printMessage("bold", "blue", "Lake:");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
         GameEngine.printMessage("plain", "default", "// Insert Textblock");
