@@ -49,3 +49,13 @@ lediglich zum Beginn eines jeden Duells zu seinem taktischen Vorgehen befragt wi
 ![Combat Two](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/combat2.png)
 
 ### Story:
+
+Die aktuelle Version besteht aus einer Art "Arena-System", wobei jede Arena jeweils eine zuvor definierte Anzahl an verschiedenen Monstern
+beherbergt. Der Spieler bekämpft dies Kreaturen mit dem Ziel die Arena gäntlich von ihnen zu befreien.
+
+Wie schon beim Kampfsystem konnte ich auch bei der Handlung des Spiels nicht alle meine ursprünglichen Ideen einbauen. Ich hatte beispielsweise angedacht,
+einige versteckte Gegenstände in den einzelnen Räumen unterzubringen. Diese Gegenstände hätte der User durch das Beenden von Arenen sammeln soll um schlussendlich die finale Arena und somit das Ende des Spiels freizuschalten. Gegebenenfalls werde ich diese Funktion nach der Abgabe des Projekts noch privat implementieren.
+
+![Story One](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/story1.png)
+
+## Testen
