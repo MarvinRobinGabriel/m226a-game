@@ -9,7 +9,7 @@ public class Location {
 
     public Location() {
         id = 0;
-        title = " ";
+        title = "";
         completed = false;
     }
 
@@ -44,7 +44,6 @@ public class Location {
 
         GameEngine.printEmptyLine();
         System.out.println(GameEngine.textBold + GameEngine.colorGreen + "You have slayed the " + m.type + "!" + GameEngine.colorReset + GameEngine.textPlain);
-        GameEngine.printEmptyLine();
         monsters.remove(m);
     
     }

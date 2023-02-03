@@ -16,7 +16,6 @@ public class Combat {
 
         GameEngine.printEmptyLine();
         System.out.println(GameEngine.textBold + GameEngine.colorBlue + p.firstname + " " + p.lastname + playerHP + GameEngine.colorReset + " is being attacked by a " + GameEngine.colorBlue + m.type + monsterHP + GameEngine.colorReset + GameEngine.textPlain);
-        GameEngine.printEmptyLine();
 
         while( !valid ) {
             GameEngine.printMessage("bold", "blue", "How will you respond to this threat?");
@@ -70,28 +69,23 @@ public class Combat {
 
                 monsterHP = monsterHP - playerDMG;
 
-                System.out.println(GameEngine.colorGreen + "Success" + GameEngine.colorReset );
+                System.out.println(GameEngine.colorGreen + "Maneuver was successful" + GameEngine.colorReset );
                 System.out.println("You have " + playerHP + " HP left.");
                 System.out.println("The monster has " + monsterHP + " HP left.");
-                GameEngine.printEmptyLine();
             } else if (!success) {
                 playerHP = playerHP - monsterDMG;
 
-                System.out.println(GameEngine.colorRed + "Failure" + GameEngine.colorReset);
+                System.out.println(GameEngine.colorRed + "Maneuver has failed" + GameEngine.colorReset);
                 System.out.println( "You have " + playerHP + " HP left.");
                 System.out.println( "The monster has " + monsterHP + " HP left.");
-                GameEngine.printEmptyLine();
             }
         }
 
         if (playerHP < 0) {
             GameEngine.GameOver(m.type, monsterHP);
-
-            p.setHealth(playerHP);
         }
 
         if (monsterHP < 0) {
-            System.out.println(p.health);
             Location.killMonster(m.id);
         }
     }

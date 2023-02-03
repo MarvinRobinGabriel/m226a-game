@@ -180,6 +180,7 @@ public class GameEngine {
 
     // gameover segment
     public static void GameOver(String monster, int health) {
+        clearConsole();
         printEmptyLine();
         printMessage("bold", "red", "Game Over");
         System.out.println( "You have been killed by a " + monster + "(" + health + "HP)" + colorReset);
