@@ -22,12 +22,16 @@ Mir war schon früh bewusst, dass ich durch eine Art "GameEngine" viele, oft ver
 zentralisieren und somit Wiederverwendbar machen konnte.
 
 **GameEngine:**
-Mithilfe diesr Game Engine konnte ich unter Anderem ohne grossen Aufwand die
-Textausgabe im Terminal nach meinen Wünschen personalisieren (Textfarbe, Textstärke)
 
+Mithilfe der Game Engine konnte ich beispielsweise durch eine Methode die Textausgabe
+im Terminal (Farbe, Textstärke) ohne grossen Aufwand festlegen. 
+
+![GameEngineThree](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/engine3.png)
 ![GameEngineOne](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/engine1.png)
 ![GameEngineTwo](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/engine2.png)
-![GameEngineThree](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/engine3.png)
 
+Ein ähnliches Prinzip verwendete ich, um die Usereingabe verschiedener Commands zu handeln.
+![GameEngine Four](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/engine4.png)
+![GameEngine Five](https://github.com/MarvinRobinGabriel/m226a-game/blob/main/docs/engine5.png)
 
 
